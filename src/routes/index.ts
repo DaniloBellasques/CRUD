@@ -9,4 +9,12 @@ router.get('/', (req,res) =>{
 
 router.get('/produtos', produtoController.index)
 
+router.get('/cadastrar', produtoController.visualizarCadastro)
+
+router.post('/cadastrar', produtoController.cadastroProduto)
+
+router.get('/editar/:id', produtoController.editaProduto)
+
+router.post('/editar/:id', produtoController.atualizaProduto)
+
 export default router

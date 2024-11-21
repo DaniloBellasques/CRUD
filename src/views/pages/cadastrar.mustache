@@ -1,0 +1,16 @@
+{{>partials/header}}
+
+<form action="/cadastrar" method="POST">
+<h1>Adicionar Produto</h1>
+Nome:<input type="text" placeholder="Nome do produto" name="nome" id="nome">
+<br>
+Valor:<input type="number" min="0" max="100" placeholder="Valor do Produto" name="valor" id="valor" step="any">
+<br>
+Quantidade:<input type="number" placeholder="Quantidade do Produto" name="quantidade" id="quantidade">
+<br>
+<button>Cadastrar</button>
+<br>
+<a href="/produtos">Clique aqui para voltar a página de produtos</a>
+</form>
+
+{{partials/footer}}
