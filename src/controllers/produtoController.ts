@@ -54,3 +54,50 @@ export const atualizaProduto = async (req: Request, res: Response)=>{
     })
     res.redirect('/produtos')
 }
+
+
+
+
+
+export const excluirProduto = async (req: Request, res: Response) => {
+    let { id } = req.params;
+
+    
+        // Exclui o produto pelo ID
+        await Produto.destroy({
+            where: {
+                id:id
+            }
+        })
+
+        res.redirect('/produtos'); // Redireciona após a exclusão
+    
+};
+
+export const confirmarExclusaoProduto = async (req: Request, res: Response) => {
+    const { id } = req.params;
+
+    try {
+        // Busca o produto pelo ID para mostrar detalhes antes da exclusão
+        const produto = await Produto.findByPk(id);
+
+        if (!produto) {
+            return res.status(404).send('Produto não encontrado');
+        }
+
+        // Renderiza uma página de confirmação
+        res.render('confirmarExclusao', { produto }); // Renderiza uma página de confirmação
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Erro ao buscar produto');
+    }
+};
+
+
+export const loginProduto = ((req: Request,res: Response)=>{
+    res.render('pages/login')
+})
+
+
+
+

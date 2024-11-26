@@ -1,0 +1,10 @@
+{{>partials/header}}
+
+
+
+<!-- Botão de exclusão -->
+<form action="/excluir/{{id}}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este produto?');">
+    <button type="submit" style="color: red;">Excluir Produto</button>
+</form>
+
+{{>partials/footer}}
